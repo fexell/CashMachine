@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 namespace CashMachine {
     internal class Menu {
         static Dictionary<int, MenuItem> MenuItems = new() {
-            { 0, new MenuItem( "Exit", () => Environment.Exit( 0 ) ) },
             { 3, new MenuItem( "Show Balance", BankAccount.ShowBalance ) },
+            { 0, new MenuItem( "Exit", () => Environment.Exit( 0 ) ) },
         };
 
         static void DisplayMenu () {

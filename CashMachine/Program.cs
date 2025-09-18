@@ -3,7 +3,8 @@
 namespace CashMachine {
     internal class Program {
         static void Main ( string[] args ) {
-            Customer.PasscodePrompt();
+            Customer.Login();
+            Menu.Run();
         }
     }
 }
