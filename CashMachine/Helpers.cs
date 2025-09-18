@@ -11,7 +11,21 @@ namespace CashMachine {
                 if( int.TryParse( value, out int result ) ) {
                     return result;
                 } else {
-                    Console.WriteLine( "Invalid integer. Please enter one: " );
+                    Console.Write( "\nInvalid integer. Please enter one: " );
+                    value = Console.ReadLine();
+                }
+            }
+        }
+
+        public static int PasscodeValidator( string value ) {
+            while( true ) {
+                if( int.TryParse( value, out int result ) && value.Length == 4 ) {
+                    return result;
+                } else {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine( "\nInvalid passcode. Needs to be at least 4 numbers long.\n" );
+                    Console.ResetColor();
+                    Console.Write( "Please enter a valid passcode: " );
                     value = Console.ReadLine();
                 }
             }

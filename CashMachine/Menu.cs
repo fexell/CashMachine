@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 namespace CashMachine {
     internal class Menu {
         static Dictionary<int, MenuItem> MenuItems = new() {
-            { 0, new MenuItem( "Exit", () => Environment.Exit( 0 ) ) }
+            { 0, new MenuItem( "Exit", () => Environment.Exit( 0 ) ) },
+            { 3, new MenuItem( "Show Balance", Customer.ShowBalance ) },
         };
 
         static void DisplayMenu () {
-            foreach ( var item in MenuItems ) {
-                Console.WriteLine( $"{item.Key}. {item.Value}" );
+            foreach ( ( int index, MenuItem item ) in MenuItems ) {
+                Console.WriteLine( $"{index}. {item.Name}" );
             }
         }
 
@@ -48,7 +49,7 @@ namespace CashMachine {
     }
 
     internal class MenuItem : Menu {
-        string Name { get; }
+        public string Name { get; }
         public Action Action { get; }
 
         public MenuItem ( string name, Action action, bool isReturn = true ) {
