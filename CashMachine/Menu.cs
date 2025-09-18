@@ -9,7 +9,7 @@ namespace CashMachine {
     internal class Menu {
         static Dictionary<int, MenuItem> MenuItems = new() {
             { 0, new MenuItem( "Exit", () => Environment.Exit( 0 ) ) },
-            { 3, new MenuItem( "Show Balance", Customer.ShowBalance ) },
+            { 3, new MenuItem( "Show Balance", BankAccount.ShowBalance ) },
         };
 
         static void DisplayMenu () {
